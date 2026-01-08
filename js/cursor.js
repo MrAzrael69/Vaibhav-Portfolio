@@ -1,46 +1,37 @@
-/* ============================================
-   CUSTOM CURSOR - Smooth animated cursor
-   ============================================ */
+// Custom cursor with smooth follow effect
 
 class CustomCursor {
     constructor() {
         this.outer = document.getElementById('cursor-outer');
         this.inner = document.getElementById('cursor-inner');
-
         this.mouseX = 0;
         this.mouseY = 0;
         this.outerX = 0;
         this.outerY = 0;
         this.innerX = 0;
         this.innerY = 0;
-
         this.isHovering = false;
         this.isClicking = false;
-
         this.init();
     }
 
     init() {
-        // Only enable on desktop
         if (window.matchMedia('(pointer: fine)').matches) {
             document.body.style.cursor = 'none';
             this.bindEvents();
             this.animate();
         } else {
-            // Hide custom cursor on touch devices
             if (this.outer) this.outer.style.display = 'none';
             if (this.inner) this.inner.style.display = 'none';
         }
     }
 
     bindEvents() {
-        // Mouse movement
         document.addEventListener('mousemove', (e) => {
             this.mouseX = e.clientX;
             this.mouseY = e.clientY;
         });
 
-        // Mouse enter/leave viewport
         document.addEventListener('mouseenter', () => {
             if (this.outer) this.outer.style.opacity = '1';
             if (this.inner) this.inner.style.opacity = '1';
@@ -51,7 +42,6 @@ class CustomCursor {
             if (this.inner) this.inner.style.opacity = '0';
         });
 
-        // Click effects
         document.addEventListener('mousedown', () => {
             this.isClicking = true;
             if (this.outer) this.outer.classList.add('clicking');
@@ -64,7 +54,6 @@ class CustomCursor {
             if (this.inner) this.inner.classList.remove('clicking');
         });
 
-        // Hover effects on interactive elements
         const interactiveElements = document.querySelectorAll('a, button, .tech-card, .project-card, .skill-card, .contact-link, .skill-item, input, textarea');
 
         interactiveElements.forEach(el => {
@@ -83,11 +72,8 @@ class CustomCursor {
     }
 
     animate() {
-        // Smooth follow for outer cursor (slower)
         this.outerX += (this.mouseX - this.outerX) * 0.1;
         this.outerY += (this.mouseY - this.outerY) * 0.1;
-
-        // Faster follow for inner cursor
         this.innerX += (this.mouseX - this.innerX) * 0.25;
         this.innerY += (this.mouseY - this.innerY) * 0.25;
 
@@ -103,7 +89,6 @@ class CustomCursor {
     }
 }
 
-// Initialize cursor when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     new CustomCursor();
 });

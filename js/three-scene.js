@@ -1,9 +1,5 @@
-/* ============================================
-   THREE.JS SCENE - 3D Background Elements
-   Neon Matrix Theme
-   ============================================ */
+// Three.js background scene
 
-// Scene Setup
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({
@@ -15,7 +11,7 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-// Main Crystal - Neon Green
+// Main crystal
 const crystalGeometry = new THREE.IcosahedronGeometry(2.2, 1);
 const crystalMaterial = new THREE.MeshBasicMaterial({
     color: 0x22c55e,
@@ -26,7 +22,7 @@ const crystalMaterial = new THREE.MeshBasicMaterial({
 const crystal = new THREE.Mesh(crystalGeometry, crystalMaterial);
 scene.add(crystal);
 
-// Inner Crystal - Lighter Green
+// Inner crystal
 const innerGeometry = new THREE.IcosahedronGeometry(1.6, 0);
 const innerMaterial = new THREE.MeshBasicMaterial({
     color: 0x4ade80,
@@ -37,7 +33,7 @@ const innerMaterial = new THREE.MeshBasicMaterial({
 const innerCrystal = new THREE.Mesh(innerGeometry, innerMaterial);
 scene.add(innerCrystal);
 
-// Core Crystal - Bright White/Green
+// Core
 const coreGeometry = new THREE.OctahedronGeometry(0.8, 0);
 const coreMaterial = new THREE.MeshBasicMaterial({
     color: 0xbbf7d0,
@@ -48,7 +44,7 @@ const coreMaterial = new THREE.MeshBasicMaterial({
 const coreCrystal = new THREE.Mesh(coreGeometry, coreMaterial);
 scene.add(coreCrystal);
 
-// Particles - All green tones
+// Particles
 const particlesGeometry = new THREE.BufferGeometry();
 const particleCount = 600;
 const positions = new Float32Array(particleCount * 3);
@@ -61,17 +57,14 @@ for (let i = 0; i < particleCount * 3; i += 3) {
 
     const colorChoice = Math.random();
     if (colorChoice < 0.4) {
-        // Bright Neon Green
         colors[i] = 0.29;
         colors[i + 1] = 0.85;
         colors[i + 2] = 0.47;
     } else if (colorChoice < 0.7) {
-        // Light Green
         colors[i] = 0.73;
         colors[i + 1] = 0.97;
         colors[i + 2] = 0.82;
     } else {
-        // White with green tint
         colors[i] = 0.9;
         colors[i + 1] = 1.0;
         colors[i + 2] = 0.9;
@@ -93,7 +86,6 @@ scene.add(particles);
 
 camera.position.z = 6;
 
-// Animation Variables
 let scrollY = 0;
 let mouseX = 0;
 let mouseY = 0;
@@ -107,11 +99,9 @@ document.addEventListener('mousemove', (e) => {
     mouseY = (e.clientY / window.innerHeight - 0.5) * 0.3;
 });
 
-// Animation Loop
 function animateScene() {
     requestAnimationFrame(animateScene);
 
-    // Crystal Rotations
     crystal.rotation.x += 0.003;
     crystal.rotation.y += 0.005;
 
@@ -122,14 +112,11 @@ function animateScene() {
     coreCrystal.rotation.y -= 0.004;
     coreCrystal.rotation.z += 0.002;
 
-    // Particle Rotation
     particles.rotation.y += 0.0004;
     particles.rotation.x += 0.0001;
 
-    // Camera Movement
     camera.position.y = -scrollY * 0.002;
 
-    // Mouse Parallax
     crystal.rotation.x += mouseY * 0.01;
     crystal.rotation.y += mouseX * 0.01;
 
@@ -138,7 +125,6 @@ function animateScene() {
 
 animateScene();
 
-// Resize Handler
 window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();

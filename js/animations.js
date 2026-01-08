@@ -1,8 +1,5 @@
-/* ============================================
-   ANIMATIONS - DOM-based interactions
-   ============================================ */
+// Animation handlers
 
-// Scroll Reveal Animation
 function initScrollReveal() {
     const reveals = document.querySelectorAll('.reveal');
 
@@ -21,7 +18,6 @@ function initScrollReveal() {
     revealOnScroll();
 }
 
-// Staggered Tech Card Animation
 function initTechCardAnimation() {
     const techCards = document.querySelectorAll('.tech-card');
 
@@ -38,7 +34,6 @@ function initTechCardAnimation() {
     techCards.forEach(card => observer.observe(card));
 }
 
-// Typing Animation
 function initTypingAnimation() {
     const tagline = "Engineering full-stack and blockchain systems built to scale";
     const typedTextElement = document.getElementById('typed-text');
@@ -55,7 +50,6 @@ function initTypingAnimation() {
     setTimeout(typeText, 2500);
 }
 
-// 3D Tilt Effect for Cards
 function initTiltEffect() {
     const tiltCards = document.querySelectorAll('.tilt-card');
 
@@ -66,7 +60,6 @@ function initTiltEffect() {
             const y = e.clientY - rect.top;
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-
             const rotateX = (y - centerY) / 25;
             const rotateY = (centerX - x) / 25;
 
@@ -79,7 +72,6 @@ function initTiltEffect() {
     });
 }
 
-// Skill Item Hover Sound (Optional)
 function initSkillItemInteraction() {
     const skillItems = document.querySelectorAll('.skill-item');
 
@@ -98,7 +90,6 @@ function initSkillItemInteraction() {
     });
 }
 
-// Initialize All Animations
 function initAnimations() {
     initScrollReveal();
     initTechCardAnimation();
@@ -107,5 +98,4 @@ function initAnimations() {
     initSkillItemInteraction();
 }
 
-// Wait for DOM
 document.addEventListener('DOMContentLoaded', initAnimations);

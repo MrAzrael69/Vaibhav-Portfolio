@@ -1,9 +1,5 @@
-/* ============================================
-   ANIMATIONS - Custom keyframes and transitions
-   Neon Matrix Theme
-   ============================================ */
+/* Keyframe animations */
 
-/* Loader Animation */
 .loader-fill {
     animation: loadProgress 2s ease-out forwards;
 }
@@ -18,7 +14,6 @@
     }
 }
 
-/* Hero Animations */
 .hero-name {
     animation: heroReveal 1.2s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -56,7 +51,6 @@
     }
 }
 
-/* Custom Animations */
 .animate-pulse-slow {
     animation: pulseSlow 3s ease-in-out infinite;
 }
@@ -126,7 +120,6 @@
     }
 }
 
-/* Hire Button Float */
 .hire-btn {
     animation: hireFloat 3s ease-in-out infinite;
 }
@@ -143,7 +136,6 @@
     }
 }
 
-/* Scroll Reveal */
 .reveal {
     opacity: 0;
     transform: translateY(50px);
@@ -155,7 +147,6 @@
     transform: translateY(0);
 }
 
-/* Tech Card Stagger */
 .tech-card {
     opacity: 0;
     transform: translateY(30px);
@@ -167,7 +158,6 @@
     transform: translateY(0);
 }
 
-/* Skill Item Hover Animation */
 .skill-item {
     transition: all 0.3s ease;
 }
@@ -176,7 +166,6 @@
     transform: translateX(8px);
 }
 
-/* Project Card Tilt */
 .project-card {
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -185,7 +174,6 @@
     transform: translateY(-12px);
 }
 
-/* Typing Cursor - Neon theme */
 .typing-cursor {
     display: inline-block;
     width: 2px;
@@ -209,7 +197,6 @@
     }
 }
 
-/* Konami Easter Egg */
 .konami-active {
     animation: rainbowShift 2s linear infinite;
 }
@@ -224,7 +211,6 @@
     }
 }
 
-/* Parallax Card Effect */
 .tilt-card {
     transform-style: preserve-3d;
     transition: transform 0.3s ease;
