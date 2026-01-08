@@ -1,0 +1,231 @@
+/* ============================================
+   ANIMATIONS - Custom keyframes and transitions
+   Neon Matrix Theme
+   ============================================ */
+
+/* Loader Animation */
+.loader-fill {
+    animation: loadProgress 2s ease-out forwards;
+}
+
+@keyframes loadProgress {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+/* Hero Animations */
+.hero-name {
+    animation: heroReveal 1.2s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-title {
+    animation: fadeSlideUp 1s 1s ease forwards;
+}
+
+.hero-tagline {
+    animation: fadeSlideUp 1s 1.5s ease forwards;
+}
+
+@keyframes heroReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(60px) skewY(3deg);
+        filter: blur(10px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(-10px) skewY(-1deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) skewY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes fadeSlideUp {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Custom Animations */
+.animate-pulse-slow {
+    animation: pulseSlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseSlow {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.animate-ping-slow {
+    animation: pingSlow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes pingSlow {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    75%,
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.animate-bounce-slow {
+    animation: bounceSlow 2s ease-in-out infinite;
+}
+
+@keyframes bounceSlow {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
+}
+
+.animate-scroll-arrow {
+    animation: scrollArrow 2s infinite;
+}
+
+@keyframes scrollArrow {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-5px, -5px);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+}
+
+/* Hire Button Float */
+.hire-btn {
+    animation: hireFloat 3s ease-in-out infinite;
+}
+
+@keyframes hireFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Scroll Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Tech Card Stagger */
+.tech-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.tech-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Skill Item Hover Animation */
+.skill-item {
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateX(8px);
+}
+
+/* Project Card Tilt */
+.project-card {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover {
+    transform: translateY(-12px);
+}
+
+/* Typing Cursor - Neon theme */
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background: #22c55e;
+    animation: cursorBlink 0.7s infinite;
+    vertical-align: middle;
+    margin-left: 3px;
+    box-shadow: 0 0 8px #22c55e;
+}
+
+@keyframes cursorBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Konami Easter Egg */
+.konami-active {
+    animation: rainbowShift 2s linear infinite;
+}
+
+@keyframes rainbowShift {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+/* Parallax Card Effect */
+.tilt-card {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}

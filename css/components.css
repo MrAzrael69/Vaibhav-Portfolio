@@ -1,0 +1,189 @@
+/* ============================================
+   COMPONENTS - Custom component styles
+   Neon Matrix Theme
+   ============================================ */
+
+/* ============ CUSTOM CURSOR STYLES ============ */
+.cursor-outer {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(34, 197, 94, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    will-change: transform;
+}
+
+.cursor-inner {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10001;
+    transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+    will-change: transform;
+    box-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e50;
+}
+
+/* Hover State */
+.cursor-outer.hovering {
+    width: 60px;
+    height: 60px;
+    border-color: #4ade80;
+    background: rgba(34, 197, 94, 0.1);
+}
+
+.cursor-inner.hovering {
+    width: 12px;
+    height: 12px;
+    background: #4ade80;
+    box-shadow: 0 0 15px #4ade80, 0 0 30px #4ade8080;
+}
+
+/* Click State */
+.cursor-outer.clicking {
+    width: 35px;
+    height: 35px;
+    border-color: #16a34a;
+}
+
+.cursor-inner.clicking {
+    width: 6px;
+    height: 6px;
+}
+
+/* Loader Hidden State */
+#loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Custom Scrollbar - Neon theme */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #22c55e;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4ade80;
+}
+
+/* Selection Color */
+::selection {
+    background: rgba(34, 197, 94, 0.3);
+    color: white;
+}
+
+/* Focus States */
+a:focus,
+button:focus {
+    outline: 2px solid #22c55e;
+    outline-offset: 2px;
+}
+
+/* Smooth Hover Glow on Tech Cards */
+.tech-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent, rgba(34, 197, 94, 0.3), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.tech-card:hover::before {
+    opacity: 1;
+}
+
+/* Hide scrollbar during load */
+body.loading {
+    overflow: hidden;
+}
+
+/* Mobile Cursor Fix */
+@media (max-width: 768px) {
+    body {
+        cursor: auto !important;
+    }
+
+    .cursor-outer,
+    .cursor-inner {
+        display: none !important;
+    }
+
+    .hire-btn {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.75rem 1.25rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Glassmorphism Enhancement */
+.glass {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Active Link Indicator */
+.nav-link.active {
+    color: #22c55e;
+}
+
+/* Button Ripple Effect */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(34, 197, 94, 0.3) 10%, transparent 10%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.5s, opacity 1s;
+}
+
+.ripple:active::after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    transition: 0s;
+}
+
+/* Neon Glow Effect */
+.neon-glow {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+}
+
+/* Footer Glow Effect */
+footer .group:hover svg {
+    filter: drop-shadow(0 0 8px #22c55e);
+}
